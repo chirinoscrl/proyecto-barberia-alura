@@ -1,0 +1,1159 @@
+Index: js/contacto.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/js/contacto.js b/js/contacto.js
+new file mode 100644
+--- /dev/null	(date 1687906180316)
++++ b/js/contacto.js	(date 1687906180316)
+@@ -0,0 +1,26 @@
++function validatePhoneNumber(input_str) {
++    const re = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
++
++    return re.test(input_str);
++}
++
++function validateForm(event) {
++    const phone = document.getElementById('telefono').value;
++
++    if (!validatePhoneNumber(phone)) {
++        document.getElementById('phone_error').classList.remove('hidden');
++    } else {
++        document.getElementById('phone_error').classList.add('hidden');
++        Swal.fire(
++            'Gracias!',
++            'Tu información fue enviada!',
++            'success'
++        )
++        setTimeout(() => {
++            document.getElementById('form-contact').reset();
++        }, 1000);
++    }
++    event.preventDefault();
++}
++
++document.getElementById('form-contact').addEventListener('submit', validateForm);
+Index: styles/reset.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/styles/reset.css b/styles/reset.css
+new file mode 100644
+--- /dev/null	(date 1686706907204)
++++ b/styles/reset.css	(date 1686706907204)
+@@ -0,0 +1,54 @@
++/* http://meyerweb.com/eric/tools/css/reset/
++   v2.0 | 20110126
++   License: none (public domain)
++*/
++
++html, body, div, span, applet, object, iframe,
++h1, h2, h3, h4, h5, h6, p, blockquote, pre,
++a, abbr, acronym, address, big, cite, code,
++del, dfn, em, img, ins, kbd, q, s, samp,
++small, strike, strong, sub, sup, tt, var,
++b, u, i, center,
++dl, dt, dd, ol, ul, li,
++fieldset, form, label, legend,
++table, caption, tbody, tfoot, thead, tr, th, td,
++article, aside, canvas, details, embed,
++figure, figcaption, footer, header, hgroup,
++menu, nav, output, ruby, section, summary,
++time, mark, audio, video {
++    margin: 0;
++    padding: 0;
++    border: 0;
++    font-size: 100%;
++    font: inherit;
++    vertical-align: baseline;
++}
++
++/* HTML5 display-role reset for older browsers */
++article, aside, details, figcaption, figure,
++footer, header, hgroup, menu, nav, section {
++    display: block;
++}
++
++body {
++    line-height: 1;
++}
++
++ol, ul {
++    list-style: none;
++}
++
++blockquote, q {
++    quotes: none;
++}
++
++blockquote:before, blockquote:after,
++q:before, q:after {
++    content: '';
++    content: none;
++}
++
++table {
++    border-collapse: collapse;
++    border-spacing: 0;
++}
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+new file mode 100644
+--- /dev/null	(date 1687899614339)
++++ b/.idea/.gitignore	(date 1687899614339)
+@@ -0,0 +1,5 @@
++# Default ignored files
++/shelf/
++/workspace.xml
++# Editor-based HTTP Client requests
++/httpRequests/
+Index: .idea/proyecto_barberia_alura.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/proyecto_barberia_alura.iml b/.idea/proyecto_barberia_alura.iml
+new file mode 100644
+--- /dev/null	(date 1687899672307)
++++ b/.idea/proyecto_barberia_alura.iml	(date 1687899672307)
+@@ -0,0 +1,12 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="WEB_MODULE" version="4">
++  <component name="NewModuleRootManager">
++    <content url="file://$MODULE_DIR$">
++      <excludeFolder url="file://$MODULE_DIR$/.tmp" />
++      <excludeFolder url="file://$MODULE_DIR$/temp" />
++      <excludeFolder url="file://$MODULE_DIR$/tmp" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+new file mode 100644
+--- /dev/null	(date 1687899672312)
++++ b/.idea/modules.xml	(date 1687899672312)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/.idea/proyecto_barberia_alura.iml" filepath="$PROJECT_DIR$/.idea/proyecto_barberia_alura.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: .editorconfig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.editorconfig b/.editorconfig
+new file mode 100644
+--- /dev/null	(date 1687901717518)
++++ b/.editorconfig	(date 1687901717518)
+@@ -0,0 +1,16 @@
++# editorconfig.org
++
++root = true
++
++[html]
++indent_style = tab
++indent_size = 4
++end_of_line = lf
++charset = utf-8
++trim_trailing_whitespace = true
++insert_final_newline = true
++max_line_length=140
++
++[css]
++indent_style = space
++indent_size = 2
+Index: styles/grid.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/styles/grid.css b/styles/grid.css
+new file mode 100644
+--- /dev/null	(date 1687900738696)
++++ b/styles/grid.css	(date 1687900738696)
+@@ -0,0 +1,116 @@
++/*------------------------------------------------------------
++
++	Aether Themes 6 Columns Grid
++
++--------------------------------------------------------------*/
++
++/* Resets
++-------------------------------------------------------------- */
++html {
++    overflow-y: auto;
++}
++
++img,
++audio,
++video,
++canvas {
++    max-width: 100%;
++}
++
++* {
++    -webkit-box-sizing: border-box;
++    -moz-box-sizing: border-box;
++    box-sizing: border-box;
++}
++
++/* Grid
++-------------------------------------------------------------- */
++
++.container {
++    max-width: 990px;
++    width: 92%;
++    margin: 0px auto;
++    position: relative;
++    zoom: 1;
++}
++
++.container:before, .container:after {
++    content: "";
++    display: table;
++}
++
++.container:after {
++    clear: both;
++}
++
++
++@media screen and (min-width: 480px) {
++    .container {
++        width: 98%;
++    }
++
++    .grid-1,
++    .grid-2,
++    .grid-3,
++    .grid-4,
++    .grid-5,
++    .grid-6,
++    .grid-half,
++    .grid-full {
++        float: left;
++        width: 96.969696969697%;
++        margin: 0 1.515151515152%;
++    }
++
++    .grid-half {
++        width: 46.969696969697%;
++        margin: 0 1.515151515152%;
++    }
++
++}
++
++@media screen and (min-width: 640px) {
++
++    .grid-1 {
++        width: 13.636363636364%;
++    }
++
++    .grid-2 {
++        width: 30.30303030303%;
++    }
++
++    .grid-3,
++    .grid-half {
++        width: 46.969696969697%;
++    }
++
++    .grid-4 {
++        width: 63.636363636364%;
++    }
++
++    .grid-5 {
++        width: 80.30303030303%;
++    }
++
++    .grid-6,
++    .grid-full {
++        width: 96.969696969697%;
++    }
++
++}
++
++
++/* Clearfix
++-------------------------------------------------------------- */
++.clearfix:before, .clearfix:after {
++    content: "";
++    display: table;
++}
++
++.clearfix:after {
++    clear: both;
++}
++
++.clearfix {
++    zoom: 1;
++}
+Index: reserva.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/reserva.html b/reserva.html
+new file mode 100644
+--- /dev/null	(date 1687904276466)
++++ b/reserva.html	(date 1687904276466)
+@@ -0,0 +1,35 @@
++<!DOCTYPE html>
++<html lang="es">
++<head>
++    <meta charset="UTF-8">
++    <title>Login - Barbería Alura </title>
++    <link rel="stylesheet" href="styles/reset.css">
++    <link rel="stylesheet" href="styles/main.css">
++</head>
++
++<body>
++<header>
++    <div class="caja">
++        <h1><img src="images/logo.png" alt="logo"></h1>
++        <nav>
++            <ul>
++                <li><a href="index.html">Home</a></li>
++                <li><a href="servicios.html">Servicios</a></li>
++                <li><a href="contacto.html">Contacto</a></li>
++                <li><a href="login.html">Login</a></li>
++                <li><a href="registrate.html">Registrate</a></li>
++            </ul>
++        </nav>
++    </div>
++</header>
++<main>
++    <div class="principal">
++        En construcción
++    </div>
++</main>
++<footer>
++    <img src="images/logo-blanco.png" alt="Logo de la Barberia Alura">
++    <p class="copyright">&copy; Copyright Barbería Alura - 2023</p>
++</footer>
++</body>
++</html>
+Index: login.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/login.html b/login.html
+new file mode 100644
+--- /dev/null	(date 1687904413900)
++++ b/login.html	(date 1687904413900)
+@@ -0,0 +1,52 @@
++<!DOCTYPE html>
++<html lang="es">
++<head>
++    <meta charset="UTF-8">
++    <title>Login - Barbería Alura</title>
++    <link rel="stylesheet" href="styles/reset.css">
++    <link rel="stylesheet" href="styles/main.css">
++</head>
++
++<body>
++<header>
++    <div class="caja">
++        <h1><img src="images/logo.png" alt="logo"></h1>
++        <nav>
++            <ul>
++                <li><a href="index.html">Home</a></li>
++                <li><a href="servicios.html">Servicios</a></li>
++                <li><a href="contacto.html">Contacto</a></li>
++                <li><a href="login.html">Login</a></li>
++                <li><a href="registrate.html">Registrate</a></li>
++            </ul>
++        </nav>
++    </div>
++</header>
++<main>
++    <div class="principal">
++        <form>
++            <label for="correoelectronico">Correo electronico</label>
++            <input type="email" id="correoelectronico" class="input-patron" required placeholder="email@dominio.com">
++
++            <label for="password">Contraseña</label>
++            <input type="password" id="password" class="input-patron" required>
++
++            <input type="submit" value="Ingresar" class="enviar">
++        </form>
++
++        <div>
++            <a href="#">Olvidaste tu contraseña?</a>
++        </div>
++        <p>
++            No eres miembro?
++            <a href="registrate.html">Registrate</a>
++        </p>
++    </div>
++</main>
++
++<footer>
++    <img src="images/logo-blanco.png" alt="Logo de la Barberia Alura">
++    <p class="copyright">&copy; Copyright Barbería Alura - 2023</p>
++</footer>
++</body>
++</html>
+Index: registrate.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/registrate.html b/registrate.html
+new file mode 100644
+--- /dev/null	(date 1687904276478)
++++ b/registrate.html	(date 1687904276478)
+@@ -0,0 +1,50 @@
++<!DOCTYPE html>
++<html lang="es">
++<head>
++    <meta charset="UTF-8">
++    <title>Login - Barbería Alura </title>
++    <link rel="stylesheet" href="styles/reset.css">
++    <link rel="stylesheet" href="styles/main.css">
++</head>
++
++<body>
++<header>
++    <div class="caja">
++        <h1><img src="images/logo.png" alt="logo"></h1>
++        <nav>
++            <ul>
++                <li><a href="index.html">Home</a></li>
++                <li><a href="servicios.html">Servicios</a></li>
++                <li><a href="contacto.html">Contacto</a></li>
++                <li><a href="login.html">Login</a></li>
++                <li><a href="registrate.html">Registrate</a></li>
++            </ul>
++        </nav>
++    </div>
++</header>
++<main>
++    <div class="principal">
++        <form>
++            <label for="nombreapellido"> Nombre y Apellido</label>
++            <input type="text" id="nombreapellido" class="input-patron" required>
++
++            <label for="correoelectronico">Correo electronico</label>
++            <input type="email" id="correoelectronico" class="input-patron" required placeholder="email@dominio.com">
++
++            <label for="password">Contraseña</label>
++            <input type="password" id="password" class="input-patron" required>
++
++            <label for="passwordConfirmation">Confirmar Contraseña</label>
++            <input type="password" id="passwordConfirmation" class="input-patron" required>
++
++            <input type="submit" value="Registrarme" class="enviar">
++        </form>
++    </div>
++</main>
++
++<footer>
++    <img src="images/logo-blanco.png" alt="Logo de la Barberia Alura">
++    <p class="copyright">&copy; Copyright Barbería Alura - 2023</p>
++</footer>
++</body>
++</html>
+Index: contacto.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/contacto.html b/contacto.html
+new file mode 100644
+--- /dev/null	(date 1687906203540)
++++ b/contacto.html	(date 1687906203540)
+@@ -0,0 +1,86 @@
++<!DOCTYPE html>
++<html lang="es">
++<head>
++    <meta charset="UTF-8">
++    <title>Contacto - Barbería Alura</title>
++    <link rel="stylesheet" href="styles/reset.css">
++    <link rel="stylesheet" href="styles/main.css">
++</head>
++
++<body>
++<header>
++    <div class="caja">
++        <h1><img src="images/logo.png" alt="logo"></h1>
++        <nav>
++            <ul>
++                <li><a href="index.html">Home</a></li>
++                <li><a href="servicios.html">Servicios</a></li>
++                <li><a href="contacto.html">Contacto</a></li>
++                <li><a href="login.html">Login</a></li>
++                <li><a href="registrate.html">Registrate</a></li>
++            </ul>
++        </nav>
++    </div>
++</header>
++<main>
++
++    <div class="principal">
++        <form id="form-contact">
++            <label for="nombreapellido"> Nombre y Apellido</label>
++            <input type="text" id="nombreapellido" class="input-patron" required>
++
++            <label for="correoelectronico">Correo electronico</label>
++            <input type="email" id="correoelectronico" class="input-patron" required
++                   placeholder="email@dominio.com">
++
++            <label for="telefono">Telefono</label>
++            <input type="tel" id="telefono" class="input-patron" required placeholder="(xx) xxx xx xx">
++            <div id="phone_error" class="error hidden">Introduzca un numero de telefono valido</div>
++
++    <label for="mensaje">Mensaje</label>
++    <textarea cols="70" rows="10" id="mensaje" class="input-patron" required></textarea>
++
++    <fieldset>
++        <legend> ¿Como le gustaria que lo contactemos?</legend>
++
++        <label for="radio-email">
++            <input type="radio" name="contacto" value="email" id="radio-email">Email
++        </label>
++
++        <label for="radio-telefono">
++            <input type="radio" name="contacto" value="telefono" id="radio-telefono"> Telefono
++        </label>
++
++        <label for="radio-whatsapp">
++            <input type="radio" name="contacto" value="whatsapp" id="radio-whatsapp" checked>WhatsApp
++        </label>
++    </fieldset>
++
++    <fieldset>
++        <legend>¿En que horario quiere ser atendido?</legend>
++        <label>
++            <select>
++                <option>Mañana</option>
++                <option>Tarde</option>
++                <option>Noche</option>
++            </select>
++        </label>
++    </fieldset>
++
++    <label class="checkbox">
++        <input type="checkbox" checked>¿Le gustaria recibir novedades de la Barberia Alura?
++    </label>
++
++    <input type="submit" value="Enviar formulario" class="enviar">
++    </form>
++    </div>
++</main>
++
++<footer>
++    <img src="images/logo-blanco.png" alt="Logo de la Barberia Alura">
++    <p class="copyright">&copy; Copyright Barbería Alura - 2023</p>
++</footer>
++<script src="js/contacto.js"></script>
++<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
++</body>
++</html>
+Index: index.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/index.html b/index.html
+new file mode 100644
+--- /dev/null	(date 1687903336909)
++++ b/index.html	(date 1687903336909)
+@@ -0,0 +1,95 @@
++<!DOCTYPE html>
++<html lang="es">
++<head>
++    <meta charset="UTF-8">
++    <meta name="viewport" content="width=device-width">
++    <title>Barbería Alura</title>
++    <link rel="stylesheet" href="styles/reset.css">
++    <link rel="stylesheet" href="styles/main.css">
++    <link rel="preconnect" href="https://fonts.googleapis.com">
++    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
++    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
++</head>
++
++<body>
++<header>
++    <div class="caja">
++        <h1><img src="images/logo.png" alt="logo"></h1>
++        <nav>
++            <ul>
++                <li><a href="index.html">Home</a></li>
++                <li><a href="servicios.html">Servicios</a></li>
++                <li><a href="contacto.html">Contacto</a></li>
++                <li><a href="login.html">Login</a></li>
++                <li><a href="registrate.html">Registrate</a></li>
++            </ul>
++        </nav>
++    </div>
++</header>
++
++<img class="banner" alt="banner" src="images/banner.jpeg">
++
++<main>
++    <section class="principal">
++        <h2 class="titulos-principal">Sobre la Barbería Alura</h2>
++        <img class="utensilios" src="images/utensilios.jpg" alt="utensilios de un barbero">
++
++        <p>
++            Ubicada en el corazón de la ciudad, la <strong>Barbería Alura</strong> trae para el mercado lo que hay de
++            mejor para su cabello y barba. Fundada en 2020, la Barbería Alura ya es destaque en la ciudad y conquista
++            nuevos clientes diariamente.
++        </p>
++
++        <p id="mision">
++            <i>Nuestra misión es: <strong>"Proporcionar autoestima y calidad de vida a nuestros
++                clientes"</strong>.</i>
++        </p>
++
++        <p>
++            Ofrecemos profesionales experimentados que están constantemente observando los cambios y movimiento en el
++            mundo de la moda, para así ofrecer a nuestros clientes las últimas tendencias. El atendimiento posee un
++            padrón de excelencia y agilidad, garantizando calidad y satisfacción de nuestros clientes.
++        </p>
++    </section>
++
++    <section class="mapa">
++        <h3 class="titulos-principal">Nuestra Ubicación</h3>
++        <p>Nuestro establecimiento esta ubicado en el corazon de la ciudad</p>
++        <div class="mapa-contenido">
++            <iframe
++                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.449840047712!2d-46.63233189999996!3d-23.5881948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5a2b2ed7f3a1%3A0xab35da2f5ca62674!2sCaelum%20-%20Education%20and%20Innovation!5e0!3m2!1ses!2sco!4v1684813114479!5m2!1ses!2sco"
++                    style="border:0;" allowfullscreen="" loading="lazy"
++                    referrerpolicy="no-referrer-when-downgrade">
++            </iframe>
++        </div>
++    </section>
++
++    <section class="Diferenciales">
++        <h3 class="titulos-principal"> Diferenciales </h3>
++        <div class="contenido-diferenciales">
++            <ul class="lista-diferenciales">
++                <li class="items">Atención personalizada a los clientes</li>
++                <li class="items">Espacio diferenciado</li>
++                <li class="items">Localización</li>
++                <li class="items">Profesionales calificado</li>
++                <li class="items">Puntualidad</li>
++                <li class="items">Limpieza</li>
++            </ul>
++            <img src="images/diferenciales.jpg" alt="diferenciales" class="imagenDiferencial">
++        </div>
++
++        <div class="video">
++            <iframe src="https://www.youtube.com/embed/Nr68e_Y1-po"
++                    title="YouTube video player"
++                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
++                    allowfullscreen></iframe>
++        </div>
++    </section>
++</main>
++
++<footer>
++    <img src="images/logo-blanco.png" alt="Logo de la Barberia Alura">
++    <p class="copyright">&copy; Copyright Barbería Alura - 2023</p>
++</footer>
++</body>
++</html>
+Index: servicios.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/servicios.html b/servicios.html
+new file mode 100644
+--- /dev/null	(date 1687904287134)
++++ b/servicios.html	(date 1687904287134)
+@@ -0,0 +1,85 @@
++<!DOCTYPE html>
++<html lang="es">
++<head>
++    <meta charset="UTF-8">
++    <title>Servicios - Barbería Alura</title>
++    <link rel="stylesheet" href="styles/reset.css">
++    <link rel="stylesheet" href="styles/main.css">
++    <link rel="stylesheet" href="styles/grid.css">
++    <link rel="stylesheet" href="styles/servicios.css">
++</head>
++
++<body>
++<header>
++    <div class="caja">
++        <h1><img src="images/logo.png" alt="logo"></h1>
++        <nav>
++            <ul>
++                <li><a href="index.html">Home</a></li>
++                <li><a href="servicios.html">Servicios</a></li>
++                <li><a href="contacto.html">Contacto</a></li>
++                <li><a href="login.html">Login</a></li>
++                <li><a href="registrate.html">Registrate</a></li>
++            </ul>
++        </nav>
++    </div>
++</header>
++
++<main>
++    <div class="principal">
++        <div class="grid-12">
++            <br>
++            <h6>
++                <span class="titulo">ARREGLO DE BARBA</span>.....$40.000<br>
++                <p class="tiempo"> 30 a 40 min</p>
++            </h6>
++            <p>Cortamos el volumen de tu barba y definimos las líneas del cuello, mejillas y borde posterior de tus
++                patillas, todo bajo asesoría por parte de un barbero profesional.</p>
++            <a class="enlace" href="reserva.html">RESERVAR MI SERVICIO ></a>
++        </div>
++        <div class="grid-12">
++            <br>
++            <h6>
++                <span class="titulo">DELINEADO DE BARBA</span>.....$30.000<br>
++                <p class="tiempo">15 a 20 min</p>
++            </h6>
++            <p>
++                Definimos las líneas del cuello, mejillas y borde posterior de tus patillas, todo bajo asesoría por
++                parte de un barbero profesional. No cortamos el volumen de tu barba.
++            </p>
++            <a class="enlace" href="reserva.html">RESERVAR MI SERVICIO ></a>
++        </div>
++        <div class="grid-12">
++            <br>
++            <h6>
++                <span class="titulo">ARREGLO Y TINTE DE BARBA</span>.....$74.000<br>
++                <p class="tiempo">50 a 60 min</p>
++            </h6>
++            <p>
++                Cortamos el volumen de tu barba, definimos las líneas del cuello, mejillas y borde posterior de tus
++                patillas y tinturamos tu barba, todo bajo asesoría por parte de un barbero profesional. <br> *Colores
++                disponibles: Negro natural, Negro intenso, Castaño Oscuro y Castaño Medio.
++            </p>
++            <a class="enlace" href="reserva.html">RESERVAR MI SERVICIO ></a>
++        </div>
++        <div class="grid-12">
++            <br>
++            <h6>
++                <span class="titulo">RASURADO DE BARBA</span>.....$40.000<br>
++                <p class="tiempo">30 a 40 min</p>
++            </h6>
++            <p>
++                Cortamos el volumen de tu barba a ras de piel evitando que esta se irrite, todo bajo asesoría por parte
++                de un barbero profesional.
++            </p>
++            <a class="enlace" href="reserva.html">RESERVAR MI SERVICIO ></a>
++        </div>
++    </div>
++</main>
++
++<footer>
++    <img src="images/logo-blanco.png">
++    <p class="copyright">&copy; Copyright Barbería Alura - 2023</p>
++</footer>
++</body>
++</html>
+Index: styles/main.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/styles/main.css b/styles/main.css
+new file mode 100644
+--- /dev/null	(date 1687905554501)
++++ b/styles/main.css	(date 1687905554501)
+@@ -0,0 +1,303 @@
++body {
++    font-family: 'Montserrat', sans-serif;
++}
++
++header {
++    background-color: #BBBBBB;
++}
++
++main {
++    min-height: 900px;
++}
++
++.caja {
++    width: 940px;
++    position: relative;
++    margin: 0 auto;
++}
++
++nav {
++    position: absolute;
++    top: 110px;
++    right: 0;
++}
++
++nav li {
++    display: inline;
++    margin: 0 0 0 15px;
++}
++
++nav a {
++    text-transform: uppercase;
++    color: #000000;
++    font-weight: bold;
++    font-size: 22px;
++    text-decoration: none;
++}
++
++nav a:hover {
++    color: #c78c19;
++    text-decoration: underline;
++}
++
++.productos, .contenedor {
++    width: 940px;
++    margin: 0 auto;
++    padding: 50px;
++}
++
++.productos li {
++    display: inline-block;
++    text-align: center;
++    width: 30%;
++    vertical-align: top;
++    margin: 0 1.15%;
++    padding: 30px 20px;
++    box-sizing: border-box;
++    border: 2px solid #000000;
++    border-radius: 10px;
++}
++
++.productos li:hover {
++    border-color: #c78c19;
++}
++
++.productos li:active {
++    border-color: #088c19;
++}
++
++.productos h2 {
++    font-size: 30px;
++    font-weight: bold;
++}
++
++.productos li:hover h2 {
++    font-size: 33px;
++}
++
++.producto-descripcion {
++    font-size: 18px;
++}
++
++.producto-precio {
++    font-size: 20px;
++    font-weight: bold;
++    margin-top: 10px;
++}
++
++footer {
++    text-align: center;
++    background: url("../images/bg.jpg");
++    padding: 40px;
++}
++
++footer > img {
++    display: initial !important;
++}
++
++.copyright {
++    color: #FFFFFF;
++    font-size: 13px;
++    margin: 20px;
++}
++
++form {
++    margin: 40px 0;
++}
++
++form label, form legend {
++    display: block;
++    font-size: 20px;
++    margin: 0 0 10px;
++}
++
++.input-patron {
++    display: block;
++    margin: 0 0 20px;
++    padding: 10px 25px;
++    width: 50%;
++}
++
++.checkbox {
++    margin: 20px 0;
++}
++
++.enviar {
++    width: 40%;
++    padding: 15px 0;
++    font-size: 18px;
++    font-weight: bold;
++    color: white;
++    background-color: orange;
++    border: none;
++    border-radius: 5px;
++    transition: 1s all;
++    cursor: pointer;
++}
++
++.enviar:hover {
++    background-color: darkorange;
++    transform: scale(1.2);
++}
++
++table {
++    margin: 40px 40px;
++}
++
++thead {
++    background-color: #555555;
++    color: white;
++    font-weight: bold;
++}
++
++td, th {
++    border: 1px solid #000000;
++    padding: 8px 15px;
++}
++
++/*CSS para nuestra home*/
++.banner {
++    width: 100%;
++    height: auto;
++    max-height: 850px;
++}
++
++.principal {
++    padding: 3em 0;
++    background: #FEFEFE;
++    width: 940px;
++    margin: 0 auto;
++    font-size: larger;
++    line-height: 1.5;
++}
++
++.titulos-principal {
++    text-align: center;
++    font-size: 2em;
++    margin: 0 0 1em;
++    clear: left;
++}
++
++.principal p {
++    margin: 0 0 1em;
++}
++
++.principal strong {
++    font-weight: bold;
++}
++
++.principal em {
++    font-style: italic;
++}
++
++.utensilios {
++    width: 160px;
++    float: left;
++    margin: 0 20px 20px 0;
++}
++
++.mapa {
++    padding: 3em 0;
++    background: linear-gradient(#FEFEFE, #888888);
++}
++
++.mapa p {
++    margin: 0 0 2em;
++    text-align: center;
++}
++
++.mapa-contenido {
++    max-width: 940px;
++    margin: 0 auto;
++}
++
++.mapa-contenido > iframe {
++    width: 100%;
++    height: 300px;
++}
++
++.Diferenciales {
++    padding: 3em 0;
++    background: #888888;
++}
++
++.contenido-diferenciales {
++    max-width: 940px;
++    margin: 0 auto;
++}
++
++.lista-diferenciales {
++    width: 40%;
++    display: inline-block;
++    margin-bottom: 30px;
++    vertical-align: top;
++    margin-top: 40px;
++    margin-right: 5%;
++}
++
++.lista-diferenciales li {
++    margin-bottom: 6px;
++}
++
++.items {
++    line-height: 1.5;
++}
++
++.items:before {
++    content: "★";
++    margin-right: 10px;
++}
++
++.items:first-child {
++    font-weight: bold;
++}
++
++.imagenDiferencial {
++    width: 50%;
++    display: inline-block;
++    transition: 900ms;
++    box-shadow: 10px 10px 30px 15px #000000;
++}
++
++.imagenDiferencial:hover {
++    opacity: 0.3;
++}
++
++.video {
++    width: 560px;
++    margin: 1em auto;
++}
++
++.video > iframe {
++    margin-top: 60px;
++    width: 100%;
++    height: 315px;
++}
++
++.error {
++    color: red;
++    font-size: 80%;
++}
++
++.hidden {
++    display: none
++}
++
++@media screen and (max-width: 480px) {
++    h1 {
++        text-align: center;
++    }
++
++    nav {
++        position: static;
++    }
++
++    .caja, .principal, .mapa-contenido, .contenido-diferenciales, .video {
++        width: auto;
++    }
++
++    .lista-diferenciales, .imagenDiferencial {
++        width: 100%;
++    }
++}
++
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1687906371407)
++++ b/.idea/vcs.xml	(date 1687906371407)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: styles/servicios.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/styles/servicios.css b/styles/servicios.css
+new file mode 100644
+--- /dev/null	(date 1687904140473)
++++ b/styles/servicios.css	(date 1687904140473)
+@@ -0,0 +1,15 @@
++.titulo {
++    font-weight: bold;
++}
++
++.tiempo {
++    margin-bottom: 4px;
++    font-size: 1em;
++    text-transform: uppercase;
++    font-weight: 400;
++}
++
++.enlace {
++    font-size: 0.8em;
++    font-weight: 900;
++}
+Index: .idea/inspectionProfiles/Project_Default.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/inspectionProfiles/Project_Default.xml b/.idea/inspectionProfiles/Project_Default.xml
+new file mode 100644
+--- /dev/null	(date 1687904189627)
++++ b/.idea/inspectionProfiles/Project_Default.xml	(date 1687904189627)
+@@ -0,0 +1,21 @@
++<component name="InspectionProjectProfileManager">
++  <profile version="1.0">
++    <option name="myName" value="Project Default" />
++    <inspection_tool class="HtmlUnknownTag" enabled="true" level="WARNING" enabled_by_default="true">
++      <option name="myValues">
++        <value>
++          <list size="7">
++            <item index="0" class="java.lang.String" itemvalue="nobr" />
++            <item index="1" class="java.lang.String" itemvalue="noembed" />
++            <item index="2" class="java.lang.String" itemvalue="comment" />
++            <item index="3" class="java.lang.String" itemvalue="noscript" />
++            <item index="4" class="java.lang.String" itemvalue="embed" />
++            <item index="5" class="java.lang.String" itemvalue="script" />
++            <item index="6" class="java.lang.String" itemvalue="p" />
++          </list>
++        </value>
++      </option>
++      <option name="myCustomValuesEnabled" value="true" />
++    </inspection_tool>
++  </profile>
++</component>
+\ No newline at end of file

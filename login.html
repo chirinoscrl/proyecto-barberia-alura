@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Barbería Alura</title>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+<header>
+    <div class="caja">
+        <h1><img src="images/logo.png" alt="logo"></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="registrate.html">Registrate</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<main>
+    <div class="principal">
+        <form>
+            <label for="correoelectronico">Correo electronico</label>
+            <input type="email" id="correoelectronico" class="input-patron" required placeholder="email@dominio.com">
+
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" class="input-patron" required>
+
+            <input type="submit" value="Ingresar" class="enviar">
+        </form>
+
+        <div>
+            <a href="#">Olvidaste tu contraseña?</a>
+        </div>
+        <p>
+            No eres miembro?
+            <a href="registrate.html">Registrate</a>
+        </p>
+    </div>
+</main>
+
+<footer>
+    <img src="images/logo-blanco.png" alt="Logo de la Barberia Alura">
+    <p class="copyright">&copy; Copyright Barbería Alura - 2023</p>
+</footer>
+</body>
+</html>
